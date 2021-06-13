@@ -16,7 +16,6 @@ spec:
   install:
     remediation:
       retries: 3
-
   values:
     containers:
       - name: nfs-client-provisioner

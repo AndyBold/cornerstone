@@ -4,3 +4,4 @@ namespace: kube-system
 resources:
   - nfs-subdir-external-provisioner.yaml
   - deployment.yaml
+  - storageclass.yaml

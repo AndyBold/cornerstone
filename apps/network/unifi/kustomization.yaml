@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: unifi
 resources:
   - pv.yaml
+  - pvc.yaml
   - namespace.yaml
   - release.yaml

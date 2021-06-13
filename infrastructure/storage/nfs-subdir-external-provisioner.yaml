@@ -16,9 +16,3 @@ spec:
   install:
     remediation:
       retries: 3
-  values:
-    nfs:
-      server:
-      path: /data/Kubernetes/cornerstone/nfsstorage
-      mountOptions:
-      volumeName: nfs-subdir-external-provisioner-root

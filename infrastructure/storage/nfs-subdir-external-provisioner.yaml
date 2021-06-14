@@ -33,4 +33,10 @@ spec:
     nfs:
       server: 192.168.1.62
       path: /data/Kubernetes/cornerstone/nfsstorage
+    storageClass:
+      name: managed-nfs-storage
+      defaultClass: true
+      archiveOnDelete: true
+      allowVolumeExpansion: true
+      provisionerName: storage.provisioner/nfs
     

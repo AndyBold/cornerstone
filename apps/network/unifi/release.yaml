@@ -18,8 +18,7 @@ spec:
       retries: 3
   values:
     unifiedService:
-      type: LoadBalancer
-      enabled: true
+      enabled: false
     persistence:
       enabled: true
       storageClass: managed-nfs-storage

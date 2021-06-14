@@ -5,7 +5,6 @@ metadata:
   namespace: unifi
 spec:
   entryPoints:
-    - web
     - websecure
   routes:
     - match: Host(`control.local`) || Host(`worker01.local`) || Host(`worker01.local`)

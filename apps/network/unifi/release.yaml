@@ -21,6 +21,14 @@ spec:
       enabled: false
     guiService:
       type: LoadBalancer
+    controllerService:
+      type: LoadBalancer
+    discoveryService:
+      type: LoadBalancer
+    stunService:
+      type: LoadBalancer
+    syslogService:
+      type: LoadBalancer
     persistence:
       enabled: true
       storageClass: managed-nfs-storage

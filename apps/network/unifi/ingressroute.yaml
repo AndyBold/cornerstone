@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: (Host(`control.local`) || Host(`worker01.local`) || Host(`worker01.local`)) && PathPrefix(`/unifi`)
+    - match: (Host(`control.local`) || Host(`worker01.local`) || Host(`worker02.local`)) && PathPrefix(`/unifi`)
       kind: Rule
       services:
         - name: unifi-gui

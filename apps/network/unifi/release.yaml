@@ -20,7 +20,7 @@ spec:
     unifiedService:
       enabled: false
     guiService:
-      port: 443
+      type: LoadBalancer
     persistence:
       enabled: true
       storageClass: managed-nfs-storage

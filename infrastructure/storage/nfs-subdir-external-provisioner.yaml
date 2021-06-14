@@ -36,10 +36,8 @@ spec:
     storageClass:
       name: managed-nfs-storage
       defaultClass: true
-      archiveOnDelete: true
+      archiveOnDelete: false
       allowVolumeExpansion: true
       provisionerName: storage.provisioner/nfs
       accessModes: 
         - ReadWriteMany
-    
-    

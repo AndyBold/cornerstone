@@ -16,6 +16,11 @@ spec:
   install:
     remediation:
       retries: 3
+  volumes:
+    - name: nfs-client-root
+      nfs:
+        server: 192.168.1.62
+        path: /data/Kubernetes/cornerstone/nfsstorage
   values:
     containers:
       - name: nfs-client-provisioner
@@ -30,8 +35,4 @@ spec:
             value: 192.168.1.62
           - name: NFS_PATH
             value: /data/Kubernetes/cornerstone/nfsstorage
-    volumes:
-      - name: nfs-client-root
-        nfs:
-          server: 192.168.1.62
-          path: /data/Kubernetes/cornerstone/nfsstorage
+    

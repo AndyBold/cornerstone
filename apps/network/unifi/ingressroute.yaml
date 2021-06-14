@@ -13,5 +13,3 @@ spec:
       services:
         - name: unifi-gui
           port: 8443
-  tls:
-    certResolver: default

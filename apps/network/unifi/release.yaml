@@ -19,6 +19,8 @@ spec:
   values:
     unifiedService:
       enabled: false
+    guiService:
+      type: LoadBalancer
     persistence:
       enabled: true
       storageClass: managed-nfs-storage

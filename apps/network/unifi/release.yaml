@@ -16,11 +16,14 @@ spec:
   install:
     remediation:
       retries: 3
-  # Default values
-  # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
   values:
     unifiedService:
       type: LoadBalancer
     guiService:
       type: LoadBalancer
-# TODO: Persistence
+    persistence:
+      enabled: true
+      storageClass: managed-nfs-storage
+      existingClaim: unifi
+      size: 8Gi
+      accessMode: ReadWriteOnce

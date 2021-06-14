@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: unifi-ingress
+  namespace: unifi
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`control.local`) || Host(`worker01.local`) || Host(`worker01.local`)
+      kind: Rule
+      services:
+        - name: unifi-gui
+          port: 8443
+  tls:
+    certResolver: default

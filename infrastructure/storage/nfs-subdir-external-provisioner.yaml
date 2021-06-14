@@ -39,5 +39,6 @@ spec:
       archiveOnDelete: true
       allowVolumeExpansion: true
       provisionerName: storage.provisioner/nfs
-      accessModes: ReadWriteMany
+      accessModes: 
+        - ReadWriteMany
     

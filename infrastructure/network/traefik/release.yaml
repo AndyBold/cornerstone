@@ -19,7 +19,7 @@ spec:
   values:
     service:
       annotations:
-        external-dns.alpha.kubernetes.io/hostname: homeassistant.cornerstones.local
+        external-dns.alpha.kubernetes.io/hostname: homeassistant.cornerstones.local,adguard.cornerstones.local
     persistence:
       enabled: true
       storageClass: managed-nfs-storage

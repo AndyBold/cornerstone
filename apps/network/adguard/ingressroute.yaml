@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: adguard
+  namespace: adguard
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`adguard.cornerstones.local`)
+      kind: Rule
+      services:
+        - name: adguard
+          port: 443

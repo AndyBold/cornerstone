@@ -12,3 +12,4 @@ spec:
       services:
         - name: homeassistant-home-assistant
           port: 8123
+          kind: TraefikService

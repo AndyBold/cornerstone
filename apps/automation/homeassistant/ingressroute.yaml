@@ -10,6 +10,6 @@ spec:
     - match: Host(`homeassistant.cornerstones.local`)
       kind: Rule
       services:
-        - name: homeassistant-home-assistant
+        - name: home-assistant
           port: 8123
           kind: TraefikService

@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: (Host(`control.local`) || Host(`worker01.local`) || Host(`worker02.local`)) && PathPrefix(`/hass`)
+    - match: Host(`homeassistant.cornerstones.local`) && PathPrefix(`/hass`)
       kind: Rule
       services:
         - name: homeassistant-home-assistant

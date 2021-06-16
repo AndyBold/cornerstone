@@ -17,6 +17,9 @@ spec:
     remediation:
       retries: 3
   values:
+    service:
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: homeassistant.cornerstones.local
     persistence:
       config:
         enabled: true

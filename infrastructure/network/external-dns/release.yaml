@@ -17,10 +17,12 @@ spec:
     remediation:
       retries: 3
   values:
-    persistence:
-      config:
-        enabled: true
-        existingClaim: homeassistant
-        accessMode: ReadWriteOnce
-        storageClass: managed-nfs-storage
-        size: 8Gi
+    image:
+      registry: docker.io
+      repository: raspbernetes/external-dns
+      tag: latest
+    provider: pdns
+    pdns:
+      apiUrl: "http://192.168.1.62"
+      apiPort: "8081"
+      apiKey: "GarbageKey"    # To be updated after deployment

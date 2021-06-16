@@ -4,3 +4,4 @@ namespace: flux-system
 resources:
   - k8sathome.yaml
   - nfsexternal.yaml
+  - bitnami.yaml

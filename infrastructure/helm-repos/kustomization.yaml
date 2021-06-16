@@ -5,3 +5,4 @@ resources:
   - k8sathome.yaml
   - nfsexternal.yaml
   - bitnami.yaml
+  - traefik.yaml

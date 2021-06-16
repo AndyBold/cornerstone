@@ -1,0 +1,28 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  releaseName: traefik
+  chart:
+    spec:
+      chart: traefik
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+        namespace: flux-system
+  interval: 1440m
+  install:
+    remediation:
+      retries: 3
+  values:
+    persistence:
+      enabled: true
+      storageClass: managed-nfs-storage
+      existingClaim: traefik
+      accessMode: ReadWriteOnce
+      size: 128Mi
+    ingressRoute:
+      dashboard:
+        enabled: false   # We handle this in ingressroute.yaml

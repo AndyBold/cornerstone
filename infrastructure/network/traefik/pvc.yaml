@@ -2,6 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: traefik
+  namespace: kube-system
 spec:
   storageClassName: managed-nfs-storage
   accessModes:

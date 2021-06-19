@@ -8,7 +8,7 @@ spec:
   routes:
   - conditions:
     - prefix: /
-      enablewebsockets: true
+    enablewebsockets: true
     services:
       - name: homeassistant-home-assistant
         port: 8123

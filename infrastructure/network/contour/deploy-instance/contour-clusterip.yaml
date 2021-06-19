@@ -1,0 +1,9 @@
+apiVersion: operator.projectcontour.io/v1alpha1
+kind: Contour
+metadata:
+  name: contour-ingress
+  namespace: contour
+spec:
+  networkPublishing:
+    envoy:
+      type: ClusterIPService

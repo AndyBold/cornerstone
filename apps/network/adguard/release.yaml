@@ -17,6 +17,11 @@ spec:
     remediation:
       retries: 3
   values:
+    service:
+      dns-tcp:
+        type: LoadBalancer
+      dns-udp:
+        type: LoadBalancer
     persistence:
       config:
         enabled: true

@@ -3,5 +3,3 @@ kind: Kustomization
 namespace: contour
 resources:
   - contour.yaml
-  - contour-nodeport.yaml
-  - contour-clusterip.yaml

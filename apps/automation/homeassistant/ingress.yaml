@@ -11,7 +11,7 @@ spec:
       port: 8123
   - conditions:
     - prefix: /api/websocket
-    enablewebsockets: true
+    enableWebsockets: true
     services:
       - name: homeassistant-home-assistant
         port: 8123

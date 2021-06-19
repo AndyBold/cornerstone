@@ -17,6 +17,7 @@ spec:
     remediation:
       retries: 3
   values:
+    sources: [service, ingress, contour-httpproxy]
     image:
       registry: docker.io
       repository: raspbernetes/external-dns

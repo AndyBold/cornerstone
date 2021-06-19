@@ -6,3 +6,4 @@ resources:
   - nfsexternal.yaml
   - bitnami.yaml
   - traefik.yaml
+  - jetstack.yaml

@@ -5,6 +5,8 @@ metadata:
 spec:
   virtualhost:
     fqdn: homeassistant.cornerstones.local
+    tls:
+      secretName: hassproxy
   routes:
   - services:
     - name: homeassistant-home-assistant

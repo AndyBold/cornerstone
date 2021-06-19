@@ -2,6 +2,7 @@ apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
   name: adguardproxy
+  namespace: adguard
 spec:
   virtualhost:
     fqdn: adguard.cornerstones.local

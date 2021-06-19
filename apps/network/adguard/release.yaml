@@ -17,6 +17,18 @@ spec:
     remediation:
       retries: 3
   values:
-    ingress:
-      main:
-        primary: false
+    persistence:
+      config:
+        enabled: true
+        storageClass: managed-nfs-storage
+        existingClaim: adguardconfig
+        size: 1Gi
+        accessMode: ReadWriteOnce
+        mountPath: /opt/adguardhome/conf
+      data:
+        enabled: true
+        storageClass: managed-nfs-storage
+        existingClaim: adguarddata
+        size: 8Gi
+        accessMode: ReadWriteOnce
+        mountPath: /opt/adguardhome/work

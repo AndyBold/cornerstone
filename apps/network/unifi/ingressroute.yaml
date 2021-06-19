@@ -10,5 +10,5 @@ spec:
     - match: Host(`unifi.cornerstones.local`) && PathPrefix(`/`)
       kind: Rule
       services:
-        - name: unifi-gui.unifi
+        - name: unifi-gui
           port: 443

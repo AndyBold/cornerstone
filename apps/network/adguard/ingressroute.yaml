@@ -10,5 +10,5 @@ spec:
     - match: Host(`adguard.cornerstones.local`)
       kind: Rule
       services:
-        - name: adguard
-          port: 443
+        - name: adguard-adguard-home
+          port: 3000

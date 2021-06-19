@@ -10,5 +10,5 @@ spec:
     - match: Host(`homeassistant.cornerstones.local`)
       kind: Rule
       services:
-        - name: homeassistant-home-assistant.homeassistant
+        - name: homeassistant-home-assistant
           port: 8123

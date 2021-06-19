@@ -12,9 +12,9 @@ spec:
   - conditions:
     - prefix: /api/websocket
       enablewebsockets: true
-      services:
-        - name: homeassistant-home-assistant
-          port: 8123
+    services:
+      - name: homeassistant-home-assistant
+        port: 8123
 
 ---
 apiVersion: cert-manager.io/v1

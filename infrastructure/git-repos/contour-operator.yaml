@@ -6,3 +6,5 @@ metadata:
 spec:
   interval: 1440m
   url: https://github.com/projectcontour/contour-operator
+  ref:
+    branch: main

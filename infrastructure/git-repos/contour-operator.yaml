@@ -5,4 +5,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1440m
-  url: https://github.com/projectcontour/contour-operator.git
+  url: https://github.com/projectcontour/contour-operator

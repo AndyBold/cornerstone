@@ -8,7 +8,7 @@ spec:
     - web
     - websecure
   routes:
-    - match: (Host(`traefik.local`) || Host(`192.168.1.129`) || Host(`192.168.1.130`) || Host(`192.168.1.184`)) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+    - match: Host(`traefik.cornerstones.local`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       kind: Rule
       services:
         - name: api@internal

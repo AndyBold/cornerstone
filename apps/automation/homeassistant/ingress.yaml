@@ -1,12 +1,28 @@
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
 metadata:
-  name: homeassistant
+  name: hassproxy
 spec:
-  rules:
-  - host: homeassistant.cornerstones.local
-    http:
-      paths:
-      - backend:
-          serviceName: homeassistant-home-assistant
-          servicePort: 8123
+  virtualhost:
+    fqdn: homeassistant.cornerstones.local
+  routes:
+  - conditions:
+    - prefix: /
+      enablewebsockets: true
+    services:
+      - name: homeassistant-home-assistant
+        port: 8123
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hassproxy
+spec:
+  commonName: homeassistant.cornerstones.local
+  dnsNames:
+  - homeassistant.cornerstones.local
+  issuerRef:
+    name: selfsigned-cluster-issuer
+    kind: ClusterIssuer
+  secretName: hassproxy

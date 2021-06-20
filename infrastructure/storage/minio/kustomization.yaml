@@ -6,3 +6,4 @@ resources:
   - deploy-operator.yaml
   - secrets-console.yaml
   - secrets-minio-root.yaml
+  - tenant.yaml

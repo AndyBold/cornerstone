@@ -1,5 +1,5 @@
-# Namespace for the operator
+# Namespace for the tenant
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: minio-operator
+  name: minio

@@ -1,9 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: minio-operator
+namespace: minio
 resources:
   - namespace.yaml
-  - namespace-tenant.yaml
   - deploy-operator.yaml
   - secrets-console.yaml
   - secrets-minio-root.yaml

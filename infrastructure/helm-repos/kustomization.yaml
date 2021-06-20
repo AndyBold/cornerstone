@@ -8,3 +8,4 @@ resources:
   - traefik.yaml
   - jetstack.yaml
   - vmware-tanzu.yaml
+  - minio.yaml

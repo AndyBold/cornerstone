@@ -17,6 +17,8 @@ spec:
     remediation:
       retries: 3
   values:
+    hostNetwork: true
+    dnsPolicy: ClusterFirstWithHostNet
     persistence:
       config:
         enabled: true

@@ -7,3 +7,4 @@ resources:
   - bitnami.yaml
   - traefik.yaml
   - jetstack.yaml
+  - vmware-tanzu.yaml

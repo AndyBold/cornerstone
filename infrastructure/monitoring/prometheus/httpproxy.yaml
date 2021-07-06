@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
 spec:
   virtualhost:
-    fqdn: grafana.cornerstones.local
+    fqdn: pigrafana.cornerstones.local
     tls:
       secretName: promgrafanaproxy
   routes:
@@ -20,9 +20,9 @@ metadata:
   name: promgrafanaproxy
   namespace: monitoring
 spec:
-  commonName: grafana.cornerstones.local
+  commonName: pigrafana.cornerstones.local
   dnsNames:
-  - grafana.cornerstones.local
+  - pigrafana.cornerstones.local
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer

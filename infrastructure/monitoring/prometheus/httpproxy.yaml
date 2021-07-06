@@ -58,3 +58,34 @@ spec:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer
   secretName: promamproxy
+
+---
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: promproxy
+  namespace: monitoring
+spec:
+  virtualhost:
+    fqdn: prometheus.cornerstones.local
+    tls:
+      secretName: promproxy
+  routes:
+  - services:
+    - name: kube-prometheus-stack-prometheus
+      port: 9090
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: promproxy
+  namespace: monitoring
+spec:
+  commonName: prometheus.cornerstones.local
+  dnsNames:
+  - prometheus.cornerstones.local
+  issuerRef:
+    name: selfsigned-cluster-issuer
+    kind: ClusterIssuer
+  secretName: promproxy

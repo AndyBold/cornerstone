@@ -27,3 +27,34 @@ spec:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer
   secretName: promgrafanaproxy
+
+---
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: promamproxy
+  namespace: monitoring
+spec:
+  virtualhost:
+    fqdn: alertmanager.cornerstones.local
+    tls:
+      secretName: promamproxy
+  routes:
+  - services:
+    - name: kube-prometheus-stack-grafana
+      port: 80
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: promamproxy
+  namespace: monitoring
+spec:
+  commonName: alertmanager.cornerstones.local
+  dnsNames:
+  - alertmanager.cornerstones.local
+  issuerRef:
+    name: selfsigned-cluster-issuer
+    kind: ClusterIssuer
+  secretName: promamproxy

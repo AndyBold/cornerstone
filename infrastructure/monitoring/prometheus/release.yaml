@@ -18,6 +18,14 @@ spec:
       retries: 3
   values:
     namespaceOverride: "monitoring"
+    defaultRules:
+      create: true
+      rules:
+        kubeApiserverSlos: false
+        kubeScheduler: false
+    prometheus:
+      prometheusSpec:
+        externalUrl: "https://prometheus.cornerstones.local"
     alertmanager:
       config:
         global:

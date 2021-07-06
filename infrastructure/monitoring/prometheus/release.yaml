@@ -44,6 +44,7 @@ spec:
               priority: -1
               retry: 10m
               title: Cornerstones Pi Cluster
+        - name: 'null'
         route:
           group_by:
           - job

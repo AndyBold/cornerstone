@@ -20,12 +20,19 @@ spec:
     namespaceOverride: "monitoring"
     alertmanager:
       config:
-        route:
-          group_by: ['job']
-          group_wait: 30s
-          group_interval: 5m
-          repeat_interval: 12h
-          receiver: 'pushover'
+        global:
+          smtp_smarthost: ''
+          smtp_from: ''
+          smtp_auth_username: ''
+          smtp_auth_password: ''
+        routes:
+          - matchers:
+            - service=~".*"
+            receiver: pushover
+            group_by: ['job']
+            group_wait: 30s
+            group_interval: 5m
+            repeat_interval: 12h
         receivers:
           - name: 'pushover'
             pushover_configs:

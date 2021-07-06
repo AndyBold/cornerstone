@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - release.yaml
   - httpproxy.yaml
+  - pushover-secret.json
+  - pushover-prom-secret.json

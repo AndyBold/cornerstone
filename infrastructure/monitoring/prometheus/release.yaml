@@ -37,7 +37,7 @@ spec:
             receiver: pushover
         receivers:
           - name: 'pushover'
-            pushover_configs:
+            pushover_config:
               user_key: pushover-api-key
               token: pushover-prom-api-key
               title: Cornerstones Pi Cluster

@@ -21,30 +21,30 @@ spec:
     alertmanager:
       config:
         global:
-          smtp_smarthost: ''
-          smtp_from: ''
-          smtp_auth_username: ''
-          smtp_auth_password: ''
-        route:
-          group_by: ['job']
-          group_wait: 30s
-          group_interval: 5m
-          repeat_interval: 12h
-          receiver: pushover
-          routes:
-          - matchers:
-            - service=~".*"
-            receiver: pushover
+          resolve_timeout: 5m
+          smtp_auth_password: ""
+          smtp_auth_username: ""
+          smtp_from: ""
+          smtp_smarthost: ""
         receivers:
-          - name: 'pushover'
-            pushover_config:
-              user_key: pushover-api-key
-              token: pushover-prom-api-key
-              title: Cornerstones Pi Cluster
-              message: template "pushover_1.tmpl"
+        - name: pushover
+          pushover_configs:
+            - user_key: <PUSHOVER_USER_KEY>
+              token: <PUSHOVER_API_TOKEN>
+              expire: 30m
+              message: '{{ template "pushover.cornerstones.text" . }}'
               priority: -1
               retry: 10m
-              expire: 30m
+              title: Cornerstones Pi Cluster
+        route:
+          group_by:
+          - job
+          group_interval: 5m
+          group_wait: 30s
+          receiver: pushover
+          repeat_interval: 12h
+        templates:
+        - /etc/alertmanager/config/*.tmpl
       templateFiles:
         pushover_1.tmpl: |-
           {{ define "cluster" }}{{ .ExternalURL | reReplaceAll ".*alertmanager\\.(.*)" "$1" }}{{ end }}
@@ -52,13 +52,13 @@ spec:
           {{ define "pushover.cornerstones.text" }}
           {{- $root := . -}}
           {{ range .Alerts }}
-            *Alert:* {{ .Annotations.summary }} - `{{ .Labels.severity }}`
-            *Cluster:*  {{ template "cluster" $root }}
-            *Description:* {{ .Annotations.description }}
-            *Graph:* <{{ .GeneratorURL }}|:chart_with_upwards_trend:>
-            *Runbook:* <{{ .Annotations.runbook }}|:spiral_note_pad:>
-            *Details:*
-              {{ range .Labels.SortedPairs }} - *{{ .Name }}:* `{{ .Value }}`
+            <b>Alert:</b> {{ .Annotations.summary }} - `{{ .Labels.severity }}`
+            <b>Cluster:</b>  {{ template "cluster" $root }}
+            <b>Description:</b> {{ .Annotations.description }}
+            <b>Graph:</b> <{{ .GeneratorURL }}|:chart_with_upwards_trend:>
+            <b>Runbook:</b> <{{ .Annotations.runbook }}|:spiral_note_pad:>
+            <b>Details:</b>
+              {{ range .Labels.SortedPairs }} - <b>{{ .Name }}:</b> `{{ .Value }}`
               {{ end }}
           {{ end }}
           {{ end }}

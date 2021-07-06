@@ -10,3 +10,4 @@ resources:
   - vmware-tanzu.yaml
   - minio.yaml
   - sealed-secrets.yaml
+  - prometheus.yaml

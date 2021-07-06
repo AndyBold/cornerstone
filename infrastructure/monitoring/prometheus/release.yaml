@@ -18,3 +18,39 @@ spec:
       retries: 3
   values:
     namespaceOverride: "monitoring"
+    alertmanager:
+      config:
+        route:
+          group_by: ['job']
+          group_wait: 30s
+          group_interval: 5m
+          repeat_interval: 12h
+          receiver: 'pushover'
+        receivers:
+          - name: 'pushover'
+            pushover_configs:
+              user_key: pushover-api-key
+              token: pushover-prom-api-key
+              title: Cornerstones Pi Cluster
+              message: template "pushover_1.tmpl"
+              priority: -1
+              retry: 10m
+              expire: 30m
+      templateFiles:
+        pushover_1.tmpl: |-
+          {{ define "cluster" }}{{ .ExternalURL | reReplaceAll ".*alertmanager\\.(.*)" "$1" }}{{ end }}
+  
+          {{ define "pushover.cornerstones.text" }}
+          {{- $root := . -}}
+          {{ range .Alerts }}
+            *Alert:* {{ .Annotations.summary }} - `{{ .Labels.severity }}`
+            *Cluster:*  {{ template "cluster" $root }}
+            *Description:* {{ .Annotations.description }}
+            *Graph:* <{{ .GeneratorURL }}|:chart_with_upwards_trend:>
+            *Runbook:* <{{ .Annotations.runbook }}|:spiral_note_pad:>
+            *Details:*
+              {{ range .Labels.SortedPairs }} - *{{ .Name }}:* `{{ .Value }}`
+              {{ end }}
+          {{ end }}
+          {{ end }}
+

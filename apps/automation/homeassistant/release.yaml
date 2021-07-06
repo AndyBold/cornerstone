@@ -19,6 +19,13 @@ spec:
   values:
     hostNetwork: true
     dnsPolicy: ClusterFirstWithHostNet
+    prometheus:
+      serviceMonitor:
+        enabled: true
+        portName: http
+        bearerTokenSecret:
+          name: "apiKey"
+          key: "hass-api-key"
     persistence:
       config:
         enabled: true

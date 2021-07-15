@@ -33,7 +33,7 @@ spec:
       ## Servers specifies the number of MinIO Tenant Pods / Servers in this pool.
       ## For standalone mode, supply 1. For distributed mode, supply 4 or more.
       ## Note that the operator does not support upgrading from standalone to distributed mode.
-    - servers: 1
+    - servers: 3
 
       ## volumesPerServer specifies the number of volumes attached per MinIO Tenant Pod / Server.
       volumesPerServer: 4
@@ -44,7 +44,7 @@ spec:
         metadata:
           name: data
         spec:
-          storageClassName: managed-nfs-storage
+          storageClassName: local-path
           accessModes:
             - ReadWriteOnce
           resources:
@@ -68,16 +68,18 @@ spec:
       ## Affinity settings for MinIO pods. Read more about affinity
       ## here: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity.
 
-      # I'm pinning this to the controller node. We only have one minio instance, so it's a logical place for it to be.
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                - control
+      # I was going to pin this to the controller node. We only have one minio instance, so it's a logical place for it to be.
+      # But I'm feeling adventurous, so we'll ship to all the worker nodes. `control` should be auto-excluded
+      # as it has the PreferNoSchedule taint.
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #       - matchExpressions:
+      #         - key: kubernetes.io/hostname
+      #           operator: In
+      #           values:
+      #           - control
 
       ## Configure resource requests and limits for MinIO containers
       # resources:
@@ -98,7 +100,7 @@ spec:
   ## Mount path where PV will be mounted inside container(s).
   mountPath: /export
   ## Sub path inside Mount path where MinIO stores data.
-  # subPath: /data
+  subPath: /data
 
   ## Use this field to provide a list of Secrets with external certificates. This can be used to to configure
   ## TLS for MinIO Tenant pods. Create secrets as explained here:

@@ -18,4 +18,14 @@ spec:
       retries: 3
   values:
     deployRestic: true   # We are not using CSI storage drivers, so we need Restic
+
+    # We need at least one provider plugin.
+    # As we're using Minio, let's pretend we are on AWS
+    initContainers: []
+      - name: velero-plugin-for-aws
+        image: velero/velero-plugin-for-aws:v1.2.0
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - mountPath: /target
+            name: plugins
     

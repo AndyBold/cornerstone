@@ -17,8 +17,6 @@ spec:
     remediation:
       retries: 3
   values:
-    service:
-      type: ClusterIP
     persistence:
       config:
         enabled: true

@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - network
   - automation/homeassistant
+  - heimdall

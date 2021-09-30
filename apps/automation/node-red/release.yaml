@@ -17,10 +17,10 @@ spec:
     remediation:
       retries: 3
   values:
-	persistence:
-	  data:
-	    type: pvc
-      existingClaim: node-red
-      retain: true
-	    enabled: true
-	    mountPath: /data
+    persistence:
+	    data:
+  	    type: pvc
+        existingClaim: node-red
+        retain: true
+  	    enabled: true
+  	    mountPath: /data

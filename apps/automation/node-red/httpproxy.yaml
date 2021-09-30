@@ -1,0 +1,29 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: noderedproxy
+  namespace: node-red
+spec:
+  virtualhost:
+    fqdn: nodered.cornerstones.local
+    tls:
+      secretName: noderedproxy
+  routes:
+  - services:
+    - name: node-red
+      port: 80
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: noderedproxy
+  namespace: node-red
+spec:
+  commonName: nodered.cornerstones.local
+  dnsNames:
+  - nodered.cornerstones.local
+  issuerRef:
+    name: selfsigned-cluster-issuer
+    kind: ClusterIssuer
+  secretName: noderedproxy

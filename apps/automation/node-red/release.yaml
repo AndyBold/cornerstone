@@ -18,9 +18,9 @@ spec:
       retries: 3
   values:
     persistence:
-	    data:
-  	    type: pvc
+      data:
+        type: pvc
         existingClaim: node-red
         retain: true
-  	    enabled: true
-  	    mountPath: /data
+        enabled: true
+        mountPath: /data

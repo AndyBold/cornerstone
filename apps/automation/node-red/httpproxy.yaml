@@ -12,6 +12,12 @@ spec:
   - services:
     - name: node-red
       port: 1880
+  - conditions:
+    - prefix: /nr/comms
+    enableWebsockets: true
+    services:
+      - name: node-red
+      port: 1880
 
 ---
 apiVersion: cert-manager.io/v1

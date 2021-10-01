@@ -17,7 +17,7 @@ spec:
     enableWebsockets: true
     services:
       - name: node-red
-      port: 1880
+        port: 1880
 
 ---
 apiVersion: cert-manager.io/v1

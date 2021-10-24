@@ -1,0 +1,34 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mosquitto
+  namespace: mosquitto
+spec:
+  releaseName: mosquitto
+  chart:
+    spec:
+      chart: mosquitto
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+  interval: 1440m
+  install:
+    remediation:
+      retries: 3
+  values:
+    persistence:
+      data:
+        type: pvc
+        existingClaim: moquitto-data
+        retain: true
+        enabled: true
+        mountPath: /mosquitto/data
+        accessMode: ReadWriteOnce
+      configinc:
+        type: pvc
+        existingClaim: mosquitto-config
+        retain: true
+        enabled: true
+        mountPath: /mosquitto/configinc
+        accessMode: ReadWriteOnce

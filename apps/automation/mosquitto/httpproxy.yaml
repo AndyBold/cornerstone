@@ -1,0 +1,16 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: mosquittoproxy
+  namespace: mosquitto
+spec:
+  virtualhost:
+    fqdn: mqtt.cornerstones.local
+    tls:
+      secretName: mosquittoproxy
+  routes:
+  - services:
+    - name: mosquitto
+      port: 1883
+
+

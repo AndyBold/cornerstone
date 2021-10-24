@@ -6,8 +6,6 @@ metadata:
 spec:
   virtualhost:
     fqdn: mqtt.cornerstones.local
-    tls:
-      secretName: mosquittoproxy
   routes:
   - services:
     - name: mosquitto

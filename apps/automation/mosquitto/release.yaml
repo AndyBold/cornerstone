@@ -20,7 +20,7 @@ spec:
     persistence:
       data:
         type: pvc
-        existingClaim: moquitto-data
+        existingClaim: mosquitto-data
         retain: true
         enabled: true
         mountPath: /mosquitto/data

@@ -27,6 +27,7 @@ spec:
   commonName: homeassistant.cornerstones.local
   dnsNames:
   - homeassistant.cornerstones.local
+  - hass.cornerstones.space
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer

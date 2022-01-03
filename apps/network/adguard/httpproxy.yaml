@@ -5,7 +5,7 @@ metadata:
   namespace: adguard
 spec:
   virtualhost:
-    fqdn: adguard.cornerstones.home
+    fqdn: adguard.cornerstones.local
     tls:
       secretName: adguardproxy
   routes:
@@ -20,8 +20,9 @@ metadata:
   name: adguardproxy
   namespace: adguard
 spec:
-  commonName: adguard.cornerstones.home
+  commonName: adguard.cornerstones.local
   dnsNames:
+  - adguard.cornerstones.local
   - adguard.cornerstones.home
   issuerRef:
     name: selfsigned-cluster-issuer

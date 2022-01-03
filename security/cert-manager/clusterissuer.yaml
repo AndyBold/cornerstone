@@ -1,5 +1,6 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
+namespace: cert-manager
 metadata:
   name: letsencrypt-staging
   namespace: cert-manager
@@ -8,7 +9,6 @@ spec:
     email: andy.bold@me.com
     privateKeySecretRef:
       name: letsencrypt-staging
-      namespace: cert-manager
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     solvers:
     - http01:

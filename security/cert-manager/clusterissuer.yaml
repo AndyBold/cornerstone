@@ -8,6 +8,7 @@ spec:
     email: andy.bold@me.com
     privateKeySecretRef:
       name: letsencrypt-staging
+      namespace: cert-manager
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     solvers:
     - http01:

@@ -27,12 +27,12 @@ spec:
           - name: PROVISIONER_NAME
             value: k8s-sigs.io/nfs-subdir-external-provisioner
           - name: NFS_SERVER
-            value: 192.168.1.62
+            value: 192.168.1.200
           - name: NFS_PATH
-            value: /data/Kubernetes/cornerstone/nfsstorage
+            value: /volume1/k8s/nfsstorage
     nfs:
-      server: 192.168.1.62
-      path: /data/Kubernetes/cornerstone/nfsstorage
+      server: 192.168.1.200
+      path: /volume1/k8s/nfsstorage
     storageClass:
       name: managed-nfs-storage
       defaultClass: true

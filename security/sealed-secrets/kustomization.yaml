@@ -3,4 +3,5 @@ kind: Kustomization
 namespace: sealed-secrets
 resources:
   - namespace.yaml
+  - helm-repository.yaml
   - release.yaml

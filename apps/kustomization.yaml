@@ -5,3 +5,4 @@ resources:
   - automation/homeassistant
   - automation/node-red
   - automation/mosquitto
+  - heimdall

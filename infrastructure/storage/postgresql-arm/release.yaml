@@ -22,7 +22,8 @@ spec:
       repository: postgres
       tag: latest
     persistence:
-      enabled: true
-      storageClass: local-path
-      accessModes:
-        - ReadWriteOnce
+      primary:
+        enabled: true
+        storageClass: local-path
+        accessModes:
+          - ReadWriteOnce

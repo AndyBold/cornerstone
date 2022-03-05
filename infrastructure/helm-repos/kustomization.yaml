@@ -10,3 +10,5 @@ resources:
   - vmware-tanzu.yaml
   - minio.yaml
   - prometheus.yaml
+  - codecentric.yaml
+  - jenkins.yaml

@@ -1,0 +1,172 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jenkins
+  namespace: jenkins
+spec:
+  releaseName: jenkins
+  chart:
+    spec:
+      chart: jenkins
+      version: 3.1.2
+      sourceRef:
+        kind: HelmRepository
+        name: jenkins
+        namespace: flux-system
+  interval: 1440m
+  install:
+    remediation:
+      retries: 3
+  values:
+    controller:
+      installPlugins:
+        - kubernetes
+        - workflow-aggregator
+        - git
+        - configuration-as-code
+      additionalPlugins:
+        - ansicolor
+        - antisamy-markup-formatter
+        - blueocean
+        - build-timeout
+        - configuration-as-code-groovy
+        - configuration-as-code-secret-ssm
+        - dashboard-view
+        - dependency-check-jenkins-plugin
+        - email-ext
+        - envinject
+        - exclusive-execution
+        - extra-columns
+        - generic-webhook-trigger
+        - greenballs
+        - groovy
+        - job-dsl
+        - junit
+        - lockable-resources
+        - mailer
+        - matrix-auth
+        - maven-plugin
+        - metrics
+        - metrics-datadog
+        - monitoring
+        - naginator
+        - pagerduty
+        - parameterized-trigger
+        - pipeline-aws
+        - pipeline-stage-view
+        - pipeline-utility-steps
+        - PrioritySorter
+        - rebuild
+        - resource-disposer
+        - run-condition
+        - saml
+        - slack
+        - test-results-analyzer
+        - throttle-concurrents
+        - timestamper
+        - ws-cleanup
+      serviceType: LoadBalancer
+      JCasC:
+        defaultConfig: true
+        configScripts:
+          config-tweaks: |
+            unclassified:
+              throttleJobProperty:
+                categories:
+                - categoryName: "groupA"
+                  maxConcurrentPerNode: 1
+                  maxConcurrentTotal: 1
+                - categoryName: "groupB"
+                  maxConcurrentPerNode: 1
+                  maxConcurrentTotal: 1
+          job-setup: |
+            jobs:
+              - script: >
+                  def jobNum = 1;
+                  def gitCount = 1;
+                  def jobTypes = ["mbp": "Multibranch", "scripted": "Scripted"];
+  
+                  for (scriptType in jobTypes.keySet()) {
+                    while (jobNum <=3) {
+                      def jobName = jobTypes.get(scriptType) + "-" + jobNum.toString();
+                      def scriptName = scriptType + "/Jenkinsfile." + scriptType + jobNum.toString();
+                      def longName = jobTypes.get(scriptType) + " pipeline test " + jobNum.toString();
+                      def gitId = "000" + gitCount.toString() + "0";
+                      gitCount ++;
+  
+                      multibranchPipelineJob(jobName) {
+                        displayName(longName)
+                        description('A collection of terrible Jenkinsfiles that should not be used anywhere near a Production service.')
+                        branchSources {
+                          git {
+                            id(gitId)
+                            remote('https://github.com/AndyBold/jenkins.git')
+                          }
+                        }
+                        orphanedItemStrategy {
+                          discardOldItems {
+                            numToKeep(1)
+                          }
+                        }
+                        factory {
+                          workflowBranchProjectFactory {
+                            scriptPath(scriptName)
+                          }
+                        }
+                      }
+  
+                      jobNum++;
+                    }
+  
+                    // Reset the job number after creating each type.
+                    jobNum = 1;
+                  }
+  
+      resources:
+        requests:
+          cpu: "50m"
+          memory: "256Mi"
+        limits:
+          cpu: "2000m"
+          memory: "8192Mi"
+      javaOpts: >
+        -Xms512m -Xmx8192m
+  
+      podAnnotations:
+        linkerd.io/inject: enabled
+        argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  
+      prometheus:
+        # If enabled, add the prometheus plugin to the list of plugins to install
+        # https://plugins.jenkins.io/prometheus
+        enabled: false
+        # Additional labels to add to the ServiceMonitor object
+        serviceMonitorAdditionalLabels: {}
+        # Set a custom namespace where to deploy ServiceMonitor resource
+        serviceMonitorNamespace: monitoring
+        scrapeInterval: 60s
+        # This is the default endpoint used by the prometheus plugin
+        scrapeEndpoint: /prometheus
+        # Additional labels to add to the PrometheusRule object
+        alertingRulesAdditionalLabels: {}
+        # An array of prometheus alerting rules
+        # See here: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+        # The `groups` root object is added by default, simply add the rule entries
+        alertingrules: []
+        # Set a custom namespace where to deploy PrometheusRule resource
+        prometheusRuleNamespace: monitoring
+  
+    agent:
+      enabled: true
+      resources:
+        requests:
+          memory: "1024Mi"
+        limits:
+          memory: "1024Mi"
+  
+    persistence:
+      enabled: true
+      storageClass: managed-nfs-storage
+      existingClaim: jenkins
+      size: 20Gi
+      accessMode: ReadWriteOnce      

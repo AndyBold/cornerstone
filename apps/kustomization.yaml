@@ -6,3 +6,4 @@ resources:
   - automation/node-red
   - automation/mosquitto
   - heimdall
+  - development/jenkins

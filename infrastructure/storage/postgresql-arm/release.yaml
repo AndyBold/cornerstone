@@ -23,6 +23,6 @@ spec:
       tag: latest
     persistence:
       enabled: true
-      storageClass: managed-nfs-storage
+      storageClass: local-path
       accessModes:
         - ReadWriteOnce

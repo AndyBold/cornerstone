@@ -22,8 +22,6 @@ spec:
       registry: docker.io
       repository: raspbernetes/external-dns
       tag: latest
-    provider: pdns
-    pdns:
-      apiUrl: "http://192.168.1.62"
-      apiPort: "8081"
-      apiKey: "GarbageKey"    # To be updated after deployment
+    provider: coredns
+    coredns:
+      etcdEndpoints: "http://192.168.1.62:2379"

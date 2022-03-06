@@ -5,8 +5,6 @@ metadata:
   namespace: jenkins
 spec:
   releaseName: jenkins
-  nodeSelector:
-    beta.kubernetes.io/arch: amd64
   chart:
     spec:
       chart: jenkins

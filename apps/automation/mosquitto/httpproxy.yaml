@@ -5,7 +5,7 @@ metadata:
   namespace: mosquitto
 spec:
   virtualhost:
-    fqdn: mqtt.cornerstones.local
+    fqdn: mqtt.cornerstones.home
   routes:
   - services:
     - name: mosquitto

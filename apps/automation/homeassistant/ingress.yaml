@@ -4,7 +4,7 @@ metadata:
   name: hassproxy
 spec:
   virtualhost:
-    fqdn: homeassistant.cornerstones.local
+    fqdn: homeassistant.cornerstones.home
     tls:
       secretName: hassproxy
   routes:
@@ -24,9 +24,9 @@ kind: Certificate
 metadata:
   name: hassproxy
 spec:
-  commonName: homeassistant.cornerstones.local
+  commonName: homeassistant.cornerstones.home
   dnsNames:
-  - homeassistant.cornerstones.local
+  - homeassistant.cornerstones.home
   - hass.cornerstones.space
   issuerRef:
     name: selfsigned-cluster-issuer

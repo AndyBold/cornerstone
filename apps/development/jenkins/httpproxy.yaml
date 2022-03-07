@@ -5,7 +5,7 @@ metadata:
   namespace: jenkins
 spec:
   virtualhost:
-    fqdn: jenkins.cornerstones.local
+    fqdn: jenkins.cornerstones.home
     tls:
       secretName: jenkinsproxy
   routes:
@@ -20,9 +20,9 @@ metadata:
   name: jenkinsproxy
   namespace: jenkins
 spec:
-  commonName: jenkins.cornerstones.local
+  commonName: jenkins.cornerstones.home
   dnsNames:
-  - jenkins.cornerstones.local
+  - jenkins.cornerstones.home
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer

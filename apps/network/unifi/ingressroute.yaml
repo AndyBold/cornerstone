@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`unifi.cornerstones.local`) && PathPrefix(`/`)
+    - match: Host(`unifi.cornerstones.home`) && PathPrefix(`/`)
       kind: Rule
       services:
         - name: unifi-gui

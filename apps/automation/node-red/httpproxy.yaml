@@ -5,7 +5,7 @@ metadata:
   namespace: node-red
 spec:
   virtualhost:
-    fqdn: nodered.cornerstones.local
+    fqdn: nodered.cornerstones.home
     tls:
       secretName: noderedproxy
   routes:
@@ -26,9 +26,9 @@ metadata:
   name: noderedproxy
   namespace: node-red
 spec:
-  commonName: nodered.cornerstones.local
+  commonName: nodered.cornerstones.home
   dnsNames:
-  - nodered.cornerstones.local
+  - nodered.cornerstones.home
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer

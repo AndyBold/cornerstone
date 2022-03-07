@@ -18,7 +18,7 @@ spec:
   - conditions:
     - prefix: /wss
     enableWebsockets: true
-    timeout: infinity
+    timeoutPolicy: infinity
     services:
       - name: unifi
         port: 8443

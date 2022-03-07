@@ -20,22 +20,6 @@ spec:
     service:
       main:
         type: LoadBalancer
-      udp:
-        enabled: true
-        type: LoadBalancer
-        ports:
-          stun:
-            enabled: true
-            port: 3478
-            protocol: UDP
-          syslog:
-            enabled: true
-            port: 5514
-            protocol: UDP
-          discovery:
-            enabled: true
-            port: 10001
-            protocol: UDP
     persistence:
       data:
         mountPath: /unifi

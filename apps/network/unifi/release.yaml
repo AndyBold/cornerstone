@@ -17,6 +17,12 @@ spec:
     remediation:
       retries: 3
   values:
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          external-dns.alpha.kubernetes.io/hostname: "unifi.cornerstones.home."
     service:
       udp:
         enabled: true
@@ -34,9 +40,6 @@ spec:
             enabled: true
             port: 10001
             protocol: UDP
-      main:
-        ports:
-          type: LoadBalancer
     persistence:
       data:
         mountPath: /unifi

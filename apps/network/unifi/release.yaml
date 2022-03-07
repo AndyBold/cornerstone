@@ -34,7 +34,9 @@ spec:
             enabled: true
             port: 10001
             protocol: UDP
-          
+      main:
+        ports:
+          type: LoadBalancer
     persistence:
       data:
         mountPath: /unifi

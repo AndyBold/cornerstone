@@ -30,8 +30,10 @@ spec:
     syslogService:
       type: LoadBalancer
     persistence:
-      enabled: true
-      storageClass: managed-nfs-storage
-      existingClaim: unifi
-      size: 8Gi
-      accessMode: ReadWriteOnce
+      data:
+        mountPath: /unifi
+        enabled: true
+        storageClass: managed-nfs-storage
+        existingClaim: unifi
+        size: 8Gi
+        accessMode: ReadWriteOnce

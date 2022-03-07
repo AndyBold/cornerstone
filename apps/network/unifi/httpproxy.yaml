@@ -13,13 +13,15 @@ spec:
     - name: unifi
       port: 8443
       protocol: tls
+    - name: unifi
+      port: 8080  
   - conditions:
     - prefix: /wss
     enableWebsockets: true
     services:
       - name: unifi
         port: 8443
-        protocol: tls
+        protocol: tls 
 
 ---
 apiVersion: cert-manager.io/v1

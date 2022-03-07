@@ -19,6 +19,7 @@ spec:
     services:
       - name: unifi
         port: 8443
+        protocol: tls
 
 ---
 apiVersion: cert-manager.io/v1

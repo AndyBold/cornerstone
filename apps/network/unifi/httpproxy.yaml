@@ -15,6 +15,9 @@ spec:
       protocol: tls
     - name: unifi
       port: 8080  
+    timeoutPolicy:
+      response: infinity
+      idle: infinity
   - conditions:
     - prefix: /wss
     enableWebsockets: true

@@ -26,7 +26,11 @@ spec:
           syslog:
             enabled: false
           discovery:
-            enabled: false  
+            enabled: false
+          controller:
+            enabled: true
+            port: 8180
+            protocol: TCP   
       udp:
         enabled: true
         type: LoadBalancer

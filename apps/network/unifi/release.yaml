@@ -18,6 +18,14 @@ spec:
       retries: 3
   values:
     service:
+      main:
+        ports:
+          stun:
+            enabled: false
+          syslog:
+            enabled: false
+          discovery:
+            enabled: false  
       udp:
         enabled: true
         type: LoadBalancer

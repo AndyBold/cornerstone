@@ -14,7 +14,7 @@ spec:
       port: 8443
       protocol: tls 
     - name: unifi
-      port: 8080  # Required for set-inform from devices
+      port: 8180  # Required for set-inform from devices
     timeoutPolicy:
       response: infinity
       idle: infinity

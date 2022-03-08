@@ -18,6 +18,8 @@ spec:
     timeoutPolicy:
       response: infinity
       idle: infinity
+    loadBalancerPolicy:
+      strategy: Cookie 
   - conditions:
     - prefix: /wss
     enableWebsockets: true
@@ -27,7 +29,9 @@ spec:
     services:
       - name: unifi
         port: 8443
-        protocol: tls 
+        protocol: tls
+    loadBalancerPolicy:
+      strategy: Cookie   
 
 ---
 apiVersion: cert-manager.io/v1

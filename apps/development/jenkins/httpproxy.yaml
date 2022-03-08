@@ -11,7 +11,7 @@ spec:
   routes:
   - services:
     - name: jenkins
-      port: 8080
+      port: 9180
 
 ---
 apiVersion: cert-manager.io/v1

@@ -121,7 +121,9 @@ spec:
                     // Reset the job number after creating each type.
                     jobNum = 1;
                   }
-  
+
+      overrideArgs:
+        --httpPort=8180
       resources:
         requests:
           cpu: "50m"

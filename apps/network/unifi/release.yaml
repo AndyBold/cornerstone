@@ -29,7 +29,7 @@ spec:
             enabled: false
           controller:
             enabled: true
-            port: 9180
+            port: 10180
             protocol: TCP   
       udp:
         enabled: true

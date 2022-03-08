@@ -19,6 +19,7 @@ spec:
   values:
     service:
       main:
+        type: LoadBalancer
         ports:
           stun:
             enabled: false

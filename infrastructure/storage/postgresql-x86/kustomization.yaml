@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: postgresql
 resources:
   - namespace.yaml
+  - pvc.yaml
   - release.yaml
   - flux-alerts.yaml

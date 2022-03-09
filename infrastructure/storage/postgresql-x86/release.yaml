@@ -24,5 +24,6 @@ spec:
     persistence:
       enabled: true
       storageClass: managed-nfs-storage
+      existingClaim: postgresql
       accessModes:
         - ReadWriteOnce

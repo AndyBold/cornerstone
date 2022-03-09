@@ -26,10 +26,4 @@ spec:
           -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS
           -Djava.awt.headless=true
     postgresql:
-      primary:
-        persistence:
-          existingClaim: keycloakdb
-          storageClass: managed-nfs-storage
-          size: 8Gi
-          accessModes: ReadWriteOnce
-          
+      enabled: true

@@ -17,13 +17,13 @@ spec:
     remediation:
       retries: 3
   values:
-    image:
-      registry: docker.io
-      repository: postgres
-      tag: latest
+    architecture: standalone
+    global:
+      storageClass: managed-nfs-storage
     persistence:
       enabled: true
       storageClass: managed-nfs-storage
       existingClaim: postgresql
+      size: 20Gi
       accessModes:
         - ReadWriteOnce

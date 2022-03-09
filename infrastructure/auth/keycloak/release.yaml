@@ -32,7 +32,7 @@ spec:
       - name: DB_VENDOR
         value: postgres
       - name: DB_ADDR
-        value: postgresql.postgresql
+        value: postgresql.postgresql.svc.cluster.local
       - name: DB_PORT
         value: "5432"
       - name: DB_DATABASE

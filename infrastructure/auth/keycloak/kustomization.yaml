@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: keycloak
 resources:
   - namespace.yaml
+  - dbcreds.json
   - pvc.yaml
   - release.yaml
   - ingress.yaml

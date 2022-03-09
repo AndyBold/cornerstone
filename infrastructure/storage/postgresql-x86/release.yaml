@@ -20,6 +20,8 @@ spec:
     architecture: standalone
     global:
       storageClass: managed-nfs-storage
+    metrics:
+      enabled: true 
     persistence:
       enabled: true
       storageClass: managed-nfs-storage

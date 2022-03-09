@@ -125,7 +125,7 @@ spec:
                   }
 
       overrideArgs:
-        --httpPort=8180
+        - --httpPort=8180
       resources:
         requests:
           cpu: "50m"

@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec:
+  releaseName: keycloak
+  chart:
+    spec:
+      chart: keycloak
+      sourceRef:
+        kind: HelmRepository
+        name: codecentric
+        namespace: flux-system
+  interval: 1440m
+  install:
+    remediation:
+      retries: 3
+  values:
+    prometheusRule:
+      enabled: true 
+    extraEnv: |
+      - name: JAVA_OPTS
+        value: >-
+          -XX:+UseContainerSupport
+          -XX:MaxRAMPercentage=50.0
+          -Djava.net.preferIPv4Stack=true
+          -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS
+          -Djava.awt.headless=true 

@@ -1,0 +1,27 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: keycloakproxy
+spec:
+  virtualhost:
+    fqdn: access.cornerstones.home
+    tls:
+      secretName: keycloakproxy
+  routes:
+  - services:
+    - name: keycloak
+      port: 80
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: keycloakproxy
+spec:
+  commonName: access.cornerstones.home
+  dnsNames:
+  - access.cornerstones.home
+  issuerRef:
+    name: selfsigned-cluster-issuer
+    kind: ClusterIssuer
+  secretName: hassproxy

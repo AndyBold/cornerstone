@@ -5,4 +5,4 @@ resources:
   - git-repos
   - storage
   - network
-
+  - auth/keycloak

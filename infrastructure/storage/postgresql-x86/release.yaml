@@ -21,7 +21,7 @@ spec:
     global:
       storageClass: managed-nfs-storage
     metrics:
-      enabled: true 
+      enabled: false 
     persistence:
       enabled: true
       storageClass: managed-nfs-storage

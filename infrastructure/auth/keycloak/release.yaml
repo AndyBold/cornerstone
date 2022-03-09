@@ -17,6 +17,9 @@ spec:
     remediation:
       retries: 3
   values:
+    postgresql:
+      enabled: false    # Disable the bundled Postgresql
+
     extraEnv: |
       - name: JAVA_OPTS
         value: >-
@@ -25,5 +28,26 @@ spec:
           -Djava.net.preferIPv4Stack=true
           -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS
           -Djava.awt.headless=true
-    postgresql:
-      enabled: true
+
+      - name: DB_VENDOR
+        value: postgres
+      - name: DB_ADDR
+        value: postgresql
+      - name: DB_PORT
+        value: "5432"
+      - name: DB_DATABASE
+        value: keycloak
+      - name: DB_USER_FILE
+        value: /secrets/db-creds/user
+      - name: DB_PASSWORD_FILE
+        value: /secrets/db-creds/password
+
+    extraVolumeMounts: |
+      - name: db-creds
+        mountPath: /secrets/db-creds
+        readOnly: true
+
+    extraVolumes: |
+      - name: db-creds
+        secret:
+          secretName: keycloak-db-creds

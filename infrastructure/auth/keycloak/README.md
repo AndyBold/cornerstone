@@ -5,14 +5,9 @@ Keycloak needs some credentials to access Postgres.
 To create these credentials:
 
 ```
-echo $KEYCLOAK_DB_USER | kubectl create secret generic keycloak-db-creds --dry-run=client --from-file=user=/dev/stdin -o json >keycloak-user-secret.json
+echo $KEYCLOAK_DB_USER | kubectl create secret generic keycloak-db-creds --dry-run=client --from-file=user=/dev/stdin -o json | kubeseal --controller-name sealed-secrets --controller-namespace sealed-secrets --namespace keycloak >kc-dbsecret.json
 
-echo $KEYCLOAK_DB_PASSWORD | kubectl create secret generic keycloak-db-creds --dry-run=client --from-file=password=/dev/stdin -o json >keycloak-password-secret.json
+cat keycloak-dbpassword | kubectl create secret generic keycloak-db-creds --dry-run=client --from-file=password=/dev/stdin -o json | kubeseal --controller-name sealed-secrets --controller-namespace sealed-secrets --namespace keycloak --merge-into kc-dbsecret.json
 
-kubeseal --controller-name sealed-secrets --controller-namespace sealed-secrets --namespace keycloak <keycloak-password-secret.json >kc-password-sealed.json
-
-kubeseal --controller-name sealed-secrets --controller-namespace sealed-secrets --namespace keycloak <keycloak-user-secret.json >kc-user-sealed.json
-
-kubectl create -f ./kc-user-sealed.json
-kubectl create -f ./kc-password-sealed.json
+kubectl create -f ./kc-dbsecret.json
 ```

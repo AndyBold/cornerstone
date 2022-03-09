@@ -4,7 +4,5 @@ namespace: keycloak
 resources:
   - namespace.yaml
   - pvc.yaml
-  - kc-user-sealed.json
-  - kc-password-sealed.json
   - release.yaml
   - ingress.yaml

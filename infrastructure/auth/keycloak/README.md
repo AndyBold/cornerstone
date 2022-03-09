@@ -12,4 +12,7 @@ echo $KEYCLOAK_DB_PASSWORD | kubectl create secret generic keycloak-db-creds --d
 kubeseal --controller-name sealed-secrets --controller-namespace sealed-secrets --namespace keycloak <keycloak-password-secret.json >kc-password-sealed.json
 
 kubeseal --controller-name sealed-secrets --controller-namespace sealed-secrets --namespace keycloak <keycloak-user-secret.json >kc-user-sealed.json
+
+kubectl create -f ./kc-user-sealed.json
+kubectl create -f ./kc-password-sealed.json
 ```

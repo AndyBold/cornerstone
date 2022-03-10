@@ -11,3 +11,15 @@ cat keycloak-dbpassword | kubectl create secret generic keycloak-db-creds --dry-
 
 kubectl create -f ./dbcreds.json
 ```
+
+# Postgres
+
+Create a user:
+
+```
+kubectl -n postgresql exec -i -t postgresql-0 -- /bin/bash
+
+psql -u postgres
+
+CREATE USER <From-above> WITH CREATEDB ENCRYPTED PASSWORD '<From-above>';
+```

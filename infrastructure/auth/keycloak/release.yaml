@@ -41,13 +41,23 @@ spec:
         value: /secrets/db-creds/user
       - name: DB_PASSWORD_FILE
         value: /secrets/db-creds/password
+      - name: KEYCLOAK_USER_FILE
+        value: /secrets/ui-creds/user
+      - name: KEYCLOAK_PASSWORD_FILE
+        value: /secrets/ui-creds/password  
 
     extraVolumeMounts: |
       - name: db-creds
         mountPath: /secrets/db-creds
         readOnly: true
+      - name: ui-creds
+        mountPath: /secrets/ui-creds
+        readOnly: true 
 
     extraVolumes: |
       - name: db-creds
         secret:
           secretName: keycloak-db-creds
+      - name: ui-creds
+        secret:
+          secretName: keycloak-ui-creds 

@@ -1,0 +1,23 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "keycloak-ui-creds",
+    "namespace": "keycloak",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "keycloak-ui-creds",
+        "namespace": "keycloak",
+        "creationTimestamp": null
+      },
+      "data": null
+    },
+    "encryptedData": {
+      "password": "AgBClY8H5DtYN/TlPqsxQCaunyrW3FnLHRUTJUa8Gt0Ccnf2WbBy/Yv0JKuaQCTh5M95HtCD3MwaW8+ucmxFe5HmtVJrFKynpRiOuqVnmk2MAJYCrn6tOnvKqXjJHYM9tb9wyQjgfW9Ga2eH4jim7rKDBZLekq/z/+hUvKJ7XPglL39kQKrog+kUlHerAtD1jgjyPjdyjAQl/sbiHsx1Lb9vzQnxFK8tXq9IZj8bNU5gXcg9uRN9Ka7hb2P93OocAh8E3YfyILGxAZS99jHuX52BK5ASDxJaI9iByH/5kaIyuAlTYBHErK/kY4I+5EjFlbcXxOiaW2174yt1DtXCR7fZgEu8XRKMBghH7rNzQt92wML1P4U1KaD/faWEIgMh3Y+JDAezy5aZGU1bfzYco+gSWtgZW8Vx9mGSk0eKIgnamjSKJrXhsxHVNriuXcCEp1VbBbKsbBZCOWWnFHT9GTREMYX2bD2I7ZEe7osym8kaVY0tn6XIhe491/KSqF3yh4Us4V8/QmhQem7m2QWzGZ2okSIwaygWQw7eK9RzJ4QXIX6tT/KY58JnOnbz4tVwSZZYkMI6W7NvMsMup8vK1CA1GJZrmtN3yTrlccWP38URuiGjksXYe3SFSTE2uIiT8D9U63y379bYVD78a0cgeP2v00rN3Ol9iQAuBVqfYWr4aH82LLpNVasFURJQ7Snz3IviNnj1zEjfIV0xtWZejMVLbOjqaw==",
+      "user": "AgAZeUtrpnlQot0w8Dx0IHYFAbYI87G46hH6ehk/P21CuJYkYMSoqfrPWkUPPA2uf1Qyl0TKjs6ojgIbg7aNj/Gfrom5mr56SRB34SECuuQyPoRsjGS9ZlfiFV9GcnEm2ZigTtvjATuE9CEhc/hWxsVG6XdQ9QAI+Vgc5kYAiCisTlxa6SsH5VycICOeKhqjLTfbL2v3wBsJElwVe8njp2RsrgXbdLz6I6LnB5h0oXy7Xxw1i88rkVzvxKuB1kpytxU9MBILaExjSFs/T4aRTBj2GdVdEo0dRA4ulQyk5V5UFqMqhgft9uWTaVtquGgGRHktqQ1Yvm62Gk6UFVgQCLP9ZZm++zBd1WqNGLhKX6K/0+Q84RFWFIHsCOHpkW3+JaMJa5/R1vJ7YvEMxLg5hnbCSRICDB0vQLTvOQdxNNoNVvu64kpvvo6ig6I8+tbN4CwDQOCeM8DvGL7TprXkAvKZE3C6DvCElw8D4CKEXwIDO+GyQOEzIk0Uf3bhTAo6iLZK3CjuUXYebQjy6bGs7Zyv9mpGR9aFZ60JQ4byNrXuj/2KVbbjVko6iSKDz0X0I1biweaDIapXUp5m0E0e93EkXggpUh+gjfiG8MbI/L8d4NW13dw1bffidek62dMPtl9THGqKIVfX9jwlo2VZImlYs5JV6SrPOkR4yInXkBMK9InycDqXCjyrUJPTOWXZPx6oRlO97ZY="
+    }
+  }
+}

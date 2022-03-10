@@ -4,6 +4,7 @@ namespace: keycloak
 resources:
   - namespace.yaml
   - dbcreds.json
+  - keycloak-creds.json
   - pvc.yaml
   - release.yaml
   - ingress.yaml

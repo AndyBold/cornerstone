@@ -9,7 +9,7 @@ spec:
       secretName: keycloakproxy
   routes:
   - services:
-    - name: keycloak
+    - name: keycloak-http
       port: 80
 
 ---

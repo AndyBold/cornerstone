@@ -29,6 +29,9 @@ spec:
           -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS
           -Djava.awt.headless=true
 
+      - name: PROXY_ADDRESS_FORWARDING
+        value: "true" 
+
       - name: DB_VENDOR
         value: postgres
       - name: DB_ADDR

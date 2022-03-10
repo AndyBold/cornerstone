@@ -12,6 +12,12 @@ spec:
     - name: keycloak-http
       port: 80
 
+  - conditions:
+    - prefix: /auth/admin
+    services:
+      - name: keycloak-http
+        port: 9990
+
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate

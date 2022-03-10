@@ -24,4 +24,4 @@ spec:
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer
-  secretName: hassproxy
+  secretName: keycloakproxy

@@ -22,6 +22,8 @@ spec:
 
     service:
       type: LoadBalancer
+      httpPort: 9280
+      httpsPort: 9243 
 
     extraEnv: |
       - name: JAVA_OPTS

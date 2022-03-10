@@ -20,6 +20,9 @@ spec:
     postgresql:
       enabled: false    # Disable the bundled Postgresql
 
+    service:
+      type: LoadBalancer
+
     extraEnv: |
       - name: JAVA_OPTS
         value: >-

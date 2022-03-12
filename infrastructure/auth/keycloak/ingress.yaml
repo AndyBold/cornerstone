@@ -10,7 +10,12 @@ spec:
   routes:
   - services:
     - name: keycloak-http
-      port: 9280
+      port: 9280 
+  - conditions:
+    - prefix: /auth
+    services:
+      - name: keycloak-http
+        port: 9990
  
 ---
 apiVersion: cert-manager.io/v1

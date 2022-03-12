@@ -8,9 +8,11 @@ spec:
     tls:
       secretName: keycloakproxy
   routes:
-  - services:
-    - name: keycloak-http
-      port: 9280
+  - conditions:
+    - prefix: /
+    services:
+      - name: keycloak-http
+        port: 9280
   - conditions:
     - prefix: /auth/
     services:

@@ -17,7 +17,6 @@ spec:
     services:
       - name: keycloak-http
         port: 9990
-        protocol: TCP
 
 ---
 apiVersion: cert-manager.io/v1

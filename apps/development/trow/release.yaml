@@ -20,6 +20,8 @@ spec:
     service:
       type: LoadBalancer
     volumeClaim:
+      storageClass: managed-nfs-storage
+      existingClaim: jenkins    
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:

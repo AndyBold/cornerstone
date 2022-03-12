@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: trow
 resources:
   - namespace.yaml
+  - pvc.yaml
   - release.yaml
   - httpproxy.yaml

@@ -35,8 +35,8 @@ spec:
           -Djava.awt.headless=true
 
       - name: PROXY_ADDRESS_FORWARDING
-        value: "true" 
-
+        value: "true"
+  
       - name: DB_VENDOR
         value: postgres
       - name: DB_ADDR

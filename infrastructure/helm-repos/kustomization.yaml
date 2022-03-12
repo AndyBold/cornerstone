@@ -12,3 +12,4 @@ resources:
   - prometheus.yaml
   - codecentric.yaml
   - jenkins.yaml
+  - trow.yaml

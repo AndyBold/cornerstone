@@ -13,7 +13,7 @@ spec:
       port: 9280
 
   - conditions:
-    - prefix: /auth/admin
+    - prefix: /auth
     services:
       - name: keycloak-http
         port: 9990

@@ -8,3 +8,4 @@ resources:
   - pvc.yaml
   - release.yaml
   - ingress.yaml
+  - adminproxy.yaml

@@ -1,0 +1,29 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: trowproxy
+  namespace: trow
+spec:
+  virtualhost:
+    fqdn: images.cornerstones.home
+    tls:
+      secretName: trowproxy
+  routes:
+  - services:
+    - name: trow
+      port: 8000
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: trowproxy
+  namespace: trow
+spec:
+  commonName: trow.cornerstones.home
+  dnsNames:
+  - trow.cornerstones.home
+  issuerRef:
+    name: selfsigned-cluster-issuer
+    kind: ClusterIssuer
+  secretName: trowproxy

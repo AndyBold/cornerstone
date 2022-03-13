@@ -20,7 +20,6 @@ spec:
     service:
       type: LoadBalancer
     volumeClaim:
-      storageClass: managed-nfs-storage  
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:

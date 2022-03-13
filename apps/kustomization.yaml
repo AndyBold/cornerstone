@@ -7,4 +7,3 @@ resources:
   - automation/mosquitto
   - heimdall
   - development/jenkins
-  - development/trow

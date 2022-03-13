@@ -20,9 +20,8 @@ spec:
     service:
       type: LoadBalancer
     volumeClaim:
-      storageClass: managed-nfs-storage
-      existingClaim: trow    
+      storageClass: managed-nfs-storage  
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 256Gi
+          storage: 32Gi

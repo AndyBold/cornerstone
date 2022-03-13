@@ -35,7 +35,7 @@ spec:
       path: /volume1/k8s/nfsstorage
     storageClass:
       name: managed-nfs-storage
-      defaultClass: true
+      defaultClass: false
       archiveOnDelete: false
       allowVolumeExpansion: true
       provisionerName: storage.provisioner/nfs

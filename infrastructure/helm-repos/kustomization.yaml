@@ -6,7 +6,6 @@ resources:
   - nfsexternal.yaml
   - bitnami.yaml
   - traefik.yaml
-  - jetstack.yaml
   - vmware-tanzu.yaml
   - minio.yaml
   - prometheus.yaml

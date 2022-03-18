@@ -5,3 +5,4 @@ resources:
   - jetstack.yaml
   - namespace.yaml
   - release.yaml  
+  - clusterissuer.yaml

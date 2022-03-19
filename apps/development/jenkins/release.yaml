@@ -42,6 +42,7 @@ spec:
         - groovy
         - job-dsl
         - junit
+        - keycloak
         - lockable-resources
         - mailer
         - matrix-auth

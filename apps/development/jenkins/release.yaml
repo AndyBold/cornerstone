@@ -74,7 +74,7 @@ spec:
         defaultConfig: true
         configScripts:
           config-tweaks: |
-            unclassified:
+            unclassified: 
               throttleJobProperty:
                 categories:
                 - categoryName: "groupA"
@@ -83,6 +83,18 @@ spec:
                 - categoryName: "groupB"
                   maxConcurrentPerNode: 1
                   maxConcurrentTotal: 1
+              keycloakSecurityRealm:
+                keycloakJson: |-
+                  {
+                    "realm": "cornerstones",
+                    "auth-server-url": "https://access.cornerstones.home/auth/",
+                    "ssl-required": "external",
+                    "resource": "jenkins",
+                    "public-client": true,
+                    "confidential-port": 0
+                  }
+    keycloakRespectAccessTokenTimeout: true
+    keycloakValidate: false 
           job-setup: |
             jobs:
               - script: >

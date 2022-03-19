@@ -71,6 +71,8 @@ spec:
       targetPort: 8180
       JCasC:
         defaultConfig: true
+        location:
+          url: "https://jenkins.cornerstones.home"
         configScripts:
           config-tweaks: |
             unclassified:

@@ -17,7 +17,7 @@ spec:
     - prefix: /auth
     services:
       - name: keycloak-http
-        port: 9990
+        port: 9280
  
 ---
 apiVersion: cert-manager.io/v1

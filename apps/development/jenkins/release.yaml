@@ -19,6 +19,7 @@ spec:
       retries: 3
   values:
     controller:
+      jenkinsUrl: "http://jenkins.cornerstones.home"
       installPlugins:
         - kubernetes
         - workflow-aggregator
@@ -74,8 +75,6 @@ spec:
         configScripts:
           config-tweaks: |
             unclassified:
-              location:
-                url: "https://jenkins.cornerstones.home"
               throttleJobProperty:
                 categories:
                 - categoryName: "groupA"

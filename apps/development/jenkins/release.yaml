@@ -19,7 +19,7 @@ spec:
       retries: 3
   values:
     controller:
-      jenkinsUrl: "http://jenkins.cornerstones.home"
+      jenkinsUrl: "https://jenkins.cornerstones.home"
       installPlugins:
         - kubernetes
         - workflow-aggregator

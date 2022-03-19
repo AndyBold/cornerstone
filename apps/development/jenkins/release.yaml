@@ -74,6 +74,8 @@ spec:
         defaultConfig: true
         configScripts:
           config-tweaks: |
+            jenkins:
+              securityRealm: "keycloak"
             unclassified: 
               throttleJobProperty:
                 categories:
@@ -93,8 +95,8 @@ spec:
                     "public-client": true,
                     "confidential-port": 0
                   }
-    keycloakRespectAccessTokenTimeout: true
-    keycloakValidate: false 
+                keycloakRespectAccessTokenTimeout: true
+                keycloakValidate: false 
           job-setup: |
             jobs:
               - script: >

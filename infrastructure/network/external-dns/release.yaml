@@ -17,6 +17,8 @@ spec:
     remediation:
       retries: 3
   values:
+    nodeSelector:
+      kubernetes.io/arch: amd64
     sources: [service, ingress, contour-httpproxy]
     provider: coredns
     coredns:

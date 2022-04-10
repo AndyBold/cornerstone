@@ -17,8 +17,10 @@ spec:
     remediation:
       retries: 3
   values:
+    nodeSelector:
+      kubernetes.io/arch: amd64
     image:
-      tag: 2022.4
+      tag: 2022.4.1
     hostNetwork: true
     dnsPolicy: ClusterFirstWithHostNet
     prometheus:

@@ -20,4 +20,4 @@ spec:
     sources: [service, ingress, contour-httpproxy]
     provider: coredns
     coredns:
-      etcdEndpoints: "http://192.168.1.62:2379"
+      etcdEndpoints: "http://192.168.50.201:2379"
